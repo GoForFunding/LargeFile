@@ -3,7 +3,7 @@ import re
 import json 
 
 # Gen AI Configuration
-genai.configure(api_key="AIzaSyA3xtb9-icFxB0DqHL5zoaoQjWj48eSxqo")
+genai.configure(api_key="AIzaSyAnLVmAm9r4ZkiCW-TXCz8HAaff-IfvWn0")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Text-cleaner function
