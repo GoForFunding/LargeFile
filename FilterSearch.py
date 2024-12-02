@@ -12,6 +12,7 @@ def generate_funding_recommendation(query):
 
     Provide the recommended funding information in the following structured JSON format:
     {{
+        "Explanation": give a 2 line explanation of what kind of fund focus ,fund stage , and fund type and why they need this,
         "FundFocus": "Select best-suggested Fund Focuses for the idea from the list below include all required fund focus",
         "FundStage": "Select one most recommended Fund Stage for the idea",
         "FundType": "Select one most recommended Fund Type for the idea"
