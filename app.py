@@ -3,7 +3,7 @@ from TextGen import GenText2
 from pptMake import GenPPT
 from PPTPicker import PickPPT
 from DefaultData import SetDefaultData
-import SearchTest
+import FilterSearch
 import os 
 
 # Initialize Flask app
@@ -36,8 +36,8 @@ def generate_ppt():
 def getInvestor():
     data = request.json  # Get the input data from POST request
     user_input = data.get('user_input', '')
-    matches=SearchTest.find_relevant_records(user_input)
-    return jsonify({'matches': matches})
+    matches=FilterSearch.generate_funding_recommendation(user_input)
+    return matches
 if __name__ == '__main__':
     # Run the app
     app.run(debug=True, port=5000)
