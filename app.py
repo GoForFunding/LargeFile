@@ -44,8 +44,8 @@ def getInvestor():
 def makeWeb():
     data = request.json  # Get the input data from POST request
     user_input = data.get('user_input', '')
-    code=WebMaker.makeBody(user_input)
-    return jsonify({'bodyTag': code})
+    outputFile=os.path.join(os.getcwd(), "index.html")
+    code=WebMaker.makeBody(outputFile,user_input)
 if __name__ == '__main__':
     # Run the app
     app.run(debug=True, port=5000)
