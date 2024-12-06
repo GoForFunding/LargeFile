@@ -46,6 +46,8 @@ def makeWeb():
     user_input = data.get('user_input', '')
     outputFile=os.path.join(os.getcwd(), "index.html")
     code=WebMaker.makeBody(outputFile,user_input)
+    return send_file(outputFile, as_attachment=True, download_name="index.html")
+
 if __name__ == '__main__':
     # Run the app
     app.run(debug=True, port=5000)
