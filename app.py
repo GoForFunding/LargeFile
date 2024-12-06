@@ -5,6 +5,7 @@ from PPTPicker import PickPPT
 from DefaultData import SetDefaultData
 import FilterSearch
 import os 
+import WebMaker
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -38,6 +39,13 @@ def getInvestor():
     user_input = data.get('user_input', '')
     matches=FilterSearch.generate_funding_recommendation(user_input)
     return matches
+
+@app.route("/makeWeb",methods=['POST'])
+def makeWeb():
+    data = request.json  # Get the input data from POST request
+    user_input = data.get('user_input', '')
+    code=WebMaker.makeBody(user_input)
+    return jsonify({'bodyTag': code})
 if __name__ == '__main__':
     # Run the app
     app.run(debug=True, port=5000)
