@@ -1,12 +1,13 @@
 import google.generativeai as genai
 import re
+import test 
 
 def clean(out):
     out=out.replace("```html","")
     out=out[:out.find("```")]
     return out
 # Gen AI Configuration
-genai.configure(api_key="AIzaSyAnLVmAm9r4ZkiCW-TXCz8HAaff-IfvWn0")
+genai.configure(api_key="AIzaSyA3xtb9-icFxB0DqHL5zoaoQjWj48eSxqo")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 def answer(q):
@@ -14,7 +15,7 @@ def answer(q):
     response= response.text
     return response
 
-def makeBody(d):
+def makeBody(outputFile,d):
    q = f"""
     <!DOCTYPE html>
     <html lang="en">
@@ -42,6 +43,7 @@ def makeBody(d):
     """
    code=answer(q)
    code=clean(code)
-   return code
+   test.replace_body_content(outputFile,code)
+   
 
 
