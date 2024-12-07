@@ -5,6 +5,7 @@ import test
 def clean(out):
     out=out.replace("```html","")
     out=out[:out.find("```")]
+    out=out.replace("class","className")
     return out
 # Gen AI Configuration
 genai.configure(api_key="AIzaSyAnLVmAm9r4ZkiCW-TXCz8HAaff-IfvWn0")
