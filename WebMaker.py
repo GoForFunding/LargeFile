@@ -10,6 +10,22 @@ def clean(out):
 genai.configure(api_key="AIzaSyAnLVmAm9r4ZkiCW-TXCz8HAaff-IfvWn0")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
+
+def write_to_index_html(file_path, html_content):
+    """
+    Writes the provided HTML content to a given index.html file.
+
+    Args:
+        file_path (str): The path to the index.html file.
+        html_content (str): The HTML content to write into the file.
+    """
+    try:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.write(html_content)
+        print(f"HTML content successfully written to {file_path}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 def answer(q):
     response = model.generate_content(q)
     response= response.text
@@ -43,7 +59,7 @@ def makeBody(outputFile,d):
     """
    code=answer(q)
    code=clean(code)
-   test.replace_body_content(outputFile,code)
+   write_to_index_html(outputFile,code)
    
 
 
