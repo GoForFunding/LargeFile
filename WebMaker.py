@@ -1,6 +1,5 @@
 import google.generativeai as genai
-import re
-import test 
+
 
 def clean(out):
     out=out.replace("```html","")
@@ -8,7 +7,7 @@ def clean(out):
     out=out.replace("class","className")
     return out
 # Gen AI Configuration
-genai.configure(api_key="AIzaSyAnLVmAm9r4ZkiCW-TXCz8HAaff-IfvWn0")
+genai.configure(api_key="AIzaSyA3xtb9-icFxB0DqHL5zoaoQjWj48eSxqo")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 
